@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APICG — Asociación de Productores Integrales del Café de Giraldo</title>
+<meta name="description" content="Blog oficial de APICG, asociación de productores de café de Giraldo, Antioquia. Documentación Régimen Especial DIAN.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f5f0e8;color:#2c1a06}
+
+nav{background:#3b2008;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:10px;color:#f5e6c8;font-size:15px;font-weight:bold}
+.nav-links{display:flex;gap:4px}
+.nav-links button{background:none;border:none;color:#d4b896;padding:8px 14px;border-radius:6px;cursor:pointer;font-size:13px;font-family:Arial,sans-serif;transition:all .2s}
+.nav-links button:hover,.nav-links button.active{background:#5a3515;color:#f5e6c8}
+
+.hero{background:linear-gradient(135deg,#2d1a06 0%,#4a2c0a 50%,#1e3d0f 100%);padding:3rem 2rem;text-align:center}
+.hero-bees{font-size:28px;letter-spacing:8px;margin-bottom:1rem;opacity:0.8}
+.hero h1{font-size:24px;font-weight:bold;color:#f5e6c8;margin-bottom:.5rem}
+.hero p{font-size:14px;color:#c4a882;max-width:500px;margin:0 auto 1.5rem}
+.hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.badge{background:#5a3515;color:#f5c880;font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid #7a4a20}
+
+.section{display:none;padding:1.5rem 2rem;max-width:800px;margin:0 auto}
+.section.active{display:block}
+
+.section-title{font-size:18px;font-weight:bold;color:#3b2008;margin-bottom:1.5rem;display:flex;align-items:center;gap:8px;padding-bottom:.75rem;border-bottom:2px solid #d4890a}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:1.5rem}
+.card{background:#fff;border:1px solid #e0d0b0;border-radius:12px;padding:1.25rem;transition:border-color .2s}
+.card:hover{border-color:#d4890a}
+.card-icon{font-size:28px;margin-bottom:.75rem}
+.card h3{font-size:14px;font-weight:bold;margin-bottom:.4rem;color:#2c1a06}
+.card p{font-size:12px;color:#6b5030;line-height:1.6}
+.card-tag{display:inline-block;background:#fef3dc;color:#7a4a08;font-size:11px;padding:2px 8px;border-radius:4px;margin-top:.5rem}
+
+.doc-list{display:flex;flex-direction:column;gap:8px}
+.doc-item{background:#fff;border:1px solid #e0d0b0;border-radius:10px;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;transition:all .2s}
+.doc-item:hover{border-color:#d4890a;background:#fffbf3}
+.doc-info{display:flex;align-items:center;gap:12px}
+.doc-icon{width:36px;height:36px;background:#fef3dc;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.doc-title{font-size:13px;font-weight:bold;color:#2c1a06}
+.doc-date{font-size:11px;color:#8a6a4a;margin-top:2px}
+.doc-btn{background:#4a2c0a;color:#f5e6c8;border:none;padding:6px 14px;border-radius:6px;font-size:12px;cursor:pointer;font-family:Arial,sans-serif;text-decoration:none;display:inline-block}
+.doc-btn:hover{background:#6b3f12}
+
+.galeria-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.gal-card{border-radius:10px;overflow:hidden;border:1px solid #e0d0b0;background:#fff}
+.gal-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:40px;background:linear-gradient(135deg,#f5e6c8,#d4c4a0)}
+.gal-label{padding:.5rem .75rem;font-size:12px;color:#6b5030}
+
+.dian-alert{background:#fef9ed;border:1px solid #f5c518;border-radius:10px;padding:1rem 1.25rem;display:flex;gap:10px;align-items:flex-start;margin-bottom:1.5rem}
+.dian-alert p{font-size:12px;color:#7a5a08;line-height:1.6}
+
+.quienes-texto{background:#fff;border:1px solid #e0d0b0;border-radius:12px;padding:1.5rem;margin-bottom:1rem;line-height:1.8;font-size:13px;color:#4a3020}
+
+footer{background:#2d1a06;text-align:center;padding:1.25rem;font-size:12px;color:#8a6a4a;margin-top:2rem}
+
+@media(max-width:600px){
+  nav{padding:0 1rem}
+  .nav-links button{padding:6px 8px;font-size:11px}
+  .hero{padding:2rem 1rem}
+  .section{padding:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">🐝 APICG — Café de Giraldo</div>
+  <div class="nav-links">
+    <button class="active" onclick="showSection('inicio',this)">Inicio</button>
+    <button onclick="showSection('quienes',this)">Quiénes somos</button>
+    <button onclick="showSection('documentos',this)">Documentos</button>
+    <button onclick="showSection('galeria',this)">Galería</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-bees">🐝 ☕ 🌿 ☕ 🐝</div>
+  <h1>Asociación de Productores Integrales del Café de Giraldo</h1>
+  <p>Cultivando café de calidad con compromiso, tradición y amor por la tierra antioqueña</p>
+  <div class="hero-badges">
+    <span class="badge">🏡 Giraldo, Antioquia</span>
+    <span class="badge">☕ Café especial</span>
+    <span class="badge">🐝 Producción integral</span>
+    <span class="badge">📋 Régimen Especial DIAN</span>
+  </div>
+</div>
+
+<!-- INICIO -->
+<div id="inicio" class="section active">
+  <p class="section-title">🏠 Bienvenidos a APICG</p>
+  <div class="dian-alert">
+    <span>📋</span>
+    <p>Este blog hace parte de la transparencia y rendición de cuentas de APICG ante la <strong>DIAN — Régimen Especial</strong>. Aquí encontrará toda la documentación oficial de la asociación.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">🌱</div>
+      <h3>Producción sostenible</h3>
+      <p>Cultivamos café con prácticas responsables con el medio ambiente y las comunidades locales.</p>
+      <span class="card-tag">☕ Café especial</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🐝</div>
+      <h3>Asociatividad</h3>
+      <p>Unidos como abejas, trabajamos en colectivo para fortalecer la cadena productiva del café.</p>
+      <span class="card-tag">👥 Comunidad</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏔️</div>
+      <h3>Giraldo, Antioquia</h3>
+      <p>Nuestros cafetales están en las montañas de Giraldo, tierra de café de altura.</p>
+      <span class="card-tag">📍 Origen</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Transparencia</h3>
+      <p>Publicamos documentos, actas y estados financieros para la comunidad y la DIAN.</p>
+      <span class="card-tag">✅ DIAN</span>
+    </div>
+  </div>
+</div>
+
+<!-- QUIÉNES SOMOS -->
+<div id="quienes" class="section">
+  <p class="section-title">👥 Quiénes somos</p>
+  <div class="quienes-texto">
+    <strong>APICG</strong> es una asociación de productores de café del municipio de Giraldo, Antioquia, creada con el propósito de fortalecer la producción cafetera integral, mejorar la calidad de vida de los asociados y promover prácticas sostenibles en el campo.
+  </div>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h3>Misión</h3>
+      <p>Promover la producción integral y sostenible del café en Giraldo, generando valor para los productores y sus familias.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌟</div>
+      <h3>Visión</h3>
+      <p>Ser una asociación líder en café especial de Antioquia, reconocida por calidad, transparencia y compromiso social.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📅</div>
+      <h3>Fundación</h3>
+      <p>Constituida legalmente con personería jurídica y operación activa en el municipio de Giraldo, Antioquia.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DOCUMENTOS -->
+<div id="documentos" class="section">
+  <p class="section-title">📁 Documentos oficiales</p>
+  <div class="dian-alert">
+    <span>ℹ️</span>
+    <p>Documentación requerida para el <strong>Régimen Especial DIAN</strong>. Haga clic en "Ver" para acceder a cada documento.</p>
+  </div>
+  <div class="doc-list">
+    <div class="doc-item">
+      <div class="doc-info">
+        <div class="doc-icon">👔</div>
+        <div>
+          <div class="doc-title">Información de personas con cargos gerenciales</div>
+          <div class="doc-date">Junio 2023</div>
+        </div>
+      </div>
+      <a class="doc-btn" href="https://drive.google.com/file/d/1KtVtqh8NEu84pXanEDXRhqPuotOIoIYN/view" target="_blank">Ver →</a>
+    </div>
+    <div class="doc-item">
+      <div class="doc-info">
+        <div class="doc-icon">👥</div>
+        <div>
+          <div class="doc-title">Información de miembros fundadores</div>
+          <div class="doc-date">Junio 2023</div>
+        </div>
+      </div>
+      <a class="doc-btn" href="https://drive.google.com/file/d/1L4hBSvnecE6OuoPpOj_bwhy_x-OQq3dt/view" target="_blank">Ver →</a>
+    </div>
+    <div class="doc-item">
+      <div class="doc-info">
+        <div class="doc-icon">💰</div>
+        <div>
+          <div class="doc-title">Estados financieros</div>
+          <div class="doc-date">Junio 2023</div>
+        </div>
+      </div>
+      <a class="doc-btn" href="https://drive.google.com/file/d/1L4VEYYSugpzUpnReCJp6Trrzs3ZWukWq/view" target="_blank">Ver →</a>
+    </div>
+    <div class="doc-item">
+      <div class="doc-info">
+        <div class="doc-icon">✅</div>
+        <div>
+          <div class="doc-title">Certificado de cumplimiento de requisitos</div>
+          <div class="doc-date">Junio 2023</div>
+        </div>
+      </div>
+      <a class="doc-btn" href="https://drive.google.com/file/d/1L-_YkzkC7KBM9weRqy3iHLBqFpnc55bP/view" target="_blank">Ver →</a>
+    </div>
+    <div class="doc-item">
+      <div class="doc-info">
+        <div class="doc-icon">📋</div>
+        <div>
+          <div class="doc-title">Certificación de antecedentes y caducidad de contratos</div>
+          <div class="doc-date">Junio 2023</div>
+        </div>
+      </div>
+      <a class="doc-btn" href="https://drive.google.com/file/d/1KzDypAIQrhLU38u3HaWIj8R97HvOTMCS/view" target="_blank">Ver →</a>
+    </div>
+    <div class="doc-item">
+      <div class="doc-info">
+        <div class="doc-icon">📑</div>
+        <div>
+          <div class="doc-title">Acta #6</div>
+          <div class="doc-date">Junio 2023</div>
+        </div>
+      </div>
+      <a class="doc-btn" href="https://drive.google.com/file/d/1L-W12ix0gsLnugyYpvGjiuchAbsCMpdz/view" target="_blank">Ver →</a>
+    </div>
+  </div>
+</div>
+
+<!-- GALERÍA -->
+<div id="galeria" class="section">
+  <p class="section-title">🖼️ Galería</p>
+  <div class="galeria-grid">
+    <div class="gal-card"><div class="gal-img">🌱</div><div class="gal-label">Cultivo de café</div></div>
+    <div class="gal-card"><div class="gal-img">☕</div><div class="gal-label">Cosecha</div></div>
+    <div class="gal-card"><div class="gal-img">🐝</div><div class="gal-label">Apicultura</div></div>
+    <div class="gal-card"><div class="gal-img">🏔️</div><div class="gal-label">Montañas de Giraldo</div></div>
+    <div class="gal-card"><div class="gal-img">👨‍🌾</div><div class="gal-label">Productores</div></div>
+    <div class="gal-card"><div class="gal-img">🌿</div><div class="gal-label">Proceso integral</div></div>
+  </div>
+  <p style="font-size:12px;color:#8a6a4a;margin-top:1rem;text-align:center">Reemplaza los íconos con fotos reales de la asociación subidas a Google Drive</p>
+</div>
+
+<footer>
+  🐝 APICG — Asociación de Productores Integrales del Café de Giraldo · Giraldo, Antioquia, Colombia<br>
+  <span style="font-size:11px;opacity:.7">Régimen Especial DIAN · 2023</span>
+</footer>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>

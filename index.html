@@ -57,6 +57,14 @@ nav{background:#3b2008;padding:0 2rem;display:flex;align-items:center;justify-co
 
 footer{background:#2d1a06;text-align:center;padding:1.25rem;font-size:12px;color:#8a6a4a;margin-top:2rem}
 
+.anio-bloque{margin-bottom:10px;border:1px solid #e0d0b0;border-radius:10px;overflow:hidden}
+.anio-header{width:100%;background:#fef3dc;border:none;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:14px;font-weight:bold;color:#4a2c0a;font-family:Arial,sans-serif;transition:background .2s}
+.anio-header:hover{background:#fde9b0}
+.anio-arrow{font-size:12px;transition:transform .2s}
+.anio-content{display:none;padding:1rem}
+.anio-content.active{display:block}
+.doc-item.pendiente{opacity:.5}
+
 @media(max-width:600px){
   nav{padding:0 1rem}
   .nav-links button{padding:6px 8px;font-size:11px}
@@ -68,7 +76,7 @@ footer{background:#2d1a06;text-align:center;padding:1.25rem;font-size:12px;color
 <body>
 
 <nav>
-  <div class="nav-logo">🐝 APICG — Café de Giraldo</div>
+  <div class="nav-logo"><img src="imagenes/logo.png" alt="Logo APICG" style="height:40px;width:40px;object-fit:contain;border-radius:50%;background:#fff;padding:2px"> APICG — Café de Giraldo</div>
   <div class="nav-links">
     <button class="active" onclick="showSection('inicio',this)">Inicio</button>
     <button onclick="showSection('quienes',this)">Quiénes somos</button>
@@ -77,7 +85,9 @@ footer{background:#2d1a06;text-align:center;padding:1.25rem;font-size:12px;color
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero" style="position:relative;overflow:hidden">
+  <img src="imagenes/banner.jpg" alt="Banner APICG" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.25;z-index:0">
+  <div style="position:relative;z-index:1">
   <div class="hero-bees">🐝 ☕ 🌿 ☕ 🐝</div>
   <h1>Asociación de Productores Integrales del Café de Giraldo</h1>
   <p>Cultivando café de calidad con compromiso, tradición y amor por la tierra antioqueña</p>
@@ -86,6 +96,7 @@ footer{background:#2d1a06;text-align:center;padding:1.25rem;font-size:12px;color
     <span class="badge">☕ Café especial</span>
     <span class="badge">🐝 Producción integral</span>
     <span class="badge">📋 Régimen Especial DIAN</span>
+  </div>
   </div>
 </div>
 
@@ -154,70 +165,148 @@ footer{background:#2d1a06;text-align:center;padding:1.25rem;font-size:12px;color
   <p class="section-title">📁 Documentos oficiales</p>
   <div class="dian-alert">
     <span>ℹ️</span>
-    <p>Documentación requerida para el <strong>Régimen Especial DIAN</strong>. Haga clic en "Ver" para acceder a cada documento.</p>
+    <p>Documentación requerida para el <strong>Régimen Especial DIAN</strong>. Seleccione el año para ver los documentos correspondientes.</p>
   </div>
-  <div class="doc-list">
-    <div class="doc-item">
-      <div class="doc-info">
-        <div class="doc-icon">👔</div>
-        <div>
-          <div class="doc-title">Información de personas con cargos gerenciales</div>
-          <div class="doc-date">Junio 2023</div>
+
+  <!-- AÑO 2023 -->
+  <div class="anio-bloque">
+    <button class="anio-header" onclick="toggleAnio('docs2023', this)">
+      <span>📅 Documentos 2023</span>
+      <span class="anio-arrow">▼</span>
+    </button>
+    <div id="docs2023" class="anio-content active">
+      <img src="imagenes/foto2023.jpeg" alt="Foto 2023" style="width:100%;max-height:200px;object-fit:cover;border-radius:10px;margin-bottom:1rem">
+      <div class="doc-list">
+        <div class="doc-item">
+          <div class="doc-info">
+            <div class="doc-icon">👔</div>
+            <div>
+              <div class="doc-title">Información de personas con cargos gerenciales</div>
+              <div class="doc-date">Junio 2023</div>
+            </div>
+          </div>
+          <a class="doc-btn" href="https://drive.google.com/file/d/1KtVtqh8NEu84pXanEDXRhqPuotOIoIYN/view" target="_blank">Ver →</a>
+        </div>
+        <div class="doc-item">
+          <div class="doc-info">
+            <div class="doc-icon">👥</div>
+            <div>
+              <div class="doc-title">Información de miembros fundadores</div>
+              <div class="doc-date">Junio 2023</div>
+            </div>
+          </div>
+          <a class="doc-btn" href="https://drive.google.com/file/d/1L4hBSvnecE6OuoPpOj_bwhy_x-OQq3dt/view" target="_blank">Ver →</a>
+        </div>
+        <div class="doc-item">
+          <div class="doc-info">
+            <div class="doc-icon">💰</div>
+            <div>
+              <div class="doc-title">Estados financieros</div>
+              <div class="doc-date">Junio 2023</div>
+            </div>
+          </div>
+          <a class="doc-btn" href="https://drive.google.com/file/d/1L4VEYYSugpzUpnReCJp6Trrzs3ZWukWq/view" target="_blank">Ver →</a>
+        </div>
+        <div class="doc-item">
+          <div class="doc-info">
+            <div class="doc-icon">✅</div>
+            <div>
+              <div class="doc-title">Certificado de cumplimiento de requisitos</div>
+              <div class="doc-date">Junio 2023</div>
+            </div>
+          </div>
+          <a class="doc-btn" href="https://drive.google.com/file/d/1L-_YkzkC7KBM9weRqy3iHLBqFpnc55bP/view" target="_blank">Ver →</a>
+        </div>
+        <div class="doc-item">
+          <div class="doc-info">
+            <div class="doc-icon">📋</div>
+            <div>
+              <div class="doc-title">Certificación de antecedentes y caducidad de contratos</div>
+              <div class="doc-date">Junio 2023</div>
+            </div>
+          </div>
+          <a class="doc-btn" href="https://drive.google.com/file/d/1KzDypAIQrhLU38u3HaWIj8R97HvOTMCS/view" target="_blank">Ver →</a>
+        </div>
+        <div class="doc-item">
+          <div class="doc-info">
+            <div class="doc-icon">📑</div>
+            <div>
+              <div class="doc-title">Acta #6</div>
+              <div class="doc-date">Junio 2023</div>
+            </div>
+          </div>
+          <a class="doc-btn" href="https://drive.google.com/file/d/1L-W12ix0gsLnugyYpvGjiuchAbsCMpdz/view" target="_blank">Ver →</a>
         </div>
       </div>
-      <a class="doc-btn" href="https://drive.google.com/file/d/1KtVtqh8NEu84pXanEDXRhqPuotOIoIYN/view" target="_blank">Ver →</a>
-    </div>
-    <div class="doc-item">
-      <div class="doc-info">
-        <div class="doc-icon">👥</div>
-        <div>
-          <div class="doc-title">Información de miembros fundadores</div>
-          <div class="doc-date">Junio 2023</div>
-        </div>
-      </div>
-      <a class="doc-btn" href="https://drive.google.com/file/d/1L4hBSvnecE6OuoPpOj_bwhy_x-OQq3dt/view" target="_blank">Ver →</a>
-    </div>
-    <div class="doc-item">
-      <div class="doc-info">
-        <div class="doc-icon">💰</div>
-        <div>
-          <div class="doc-title">Estados financieros</div>
-          <div class="doc-date">Junio 2023</div>
-        </div>
-      </div>
-      <a class="doc-btn" href="https://drive.google.com/file/d/1L4VEYYSugpzUpnReCJp6Trrzs3ZWukWq/view" target="_blank">Ver →</a>
-    </div>
-    <div class="doc-item">
-      <div class="doc-info">
-        <div class="doc-icon">✅</div>
-        <div>
-          <div class="doc-title">Certificado de cumplimiento de requisitos</div>
-          <div class="doc-date">Junio 2023</div>
-        </div>
-      </div>
-      <a class="doc-btn" href="https://drive.google.com/file/d/1L-_YkzkC7KBM9weRqy3iHLBqFpnc55bP/view" target="_blank">Ver →</a>
-    </div>
-    <div class="doc-item">
-      <div class="doc-info">
-        <div class="doc-icon">📋</div>
-        <div>
-          <div class="doc-title">Certificación de antecedentes y caducidad de contratos</div>
-          <div class="doc-date">Junio 2023</div>
-        </div>
-      </div>
-      <a class="doc-btn" href="https://drive.google.com/file/d/1KzDypAIQrhLU38u3HaWIj8R97HvOTMCS/view" target="_blank">Ver →</a>
-    </div>
-    <div class="doc-item">
-      <div class="doc-info">
-        <div class="doc-icon">📑</div>
-        <div>
-          <div class="doc-title">Acta #6</div>
-          <div class="doc-date">Junio 2023</div>
-        </div>
-      </div>
-      <a class="doc-btn" href="https://drive.google.com/file/d/1L-W12ix0gsLnugyYpvGjiuchAbsCMpdz/view" target="_blank">Ver →</a>
     </div>
   </div>
+
+  <!-- AÑO 2024 -->
+  <div class="anio-bloque">
+    <button class="anio-header" onclick="toggleAnio('docs2024', this)">
+      <span>📅 Documentos 2024</span>
+      <span class="anio-arrow">▶</span>
+    </button>
+    <div id="docs2024" class="anio-content">
+      <img src="imagenes/foto2024.jpeg" alt="Foto 2024" style="width:100%;max-height:200px;object-fit:cover;border-radius:10px;margin-bottom:1rem">
+      <div class="doc-list">
+        <div class="doc-item pendiente">
+          <div class="doc-info">
+            <div class="doc-icon">📄</div>
+            <div>
+              <div class="doc-title">Pendiente de carga — Agregar documentos 2024</div>
+              <div class="doc-date">Próximamente</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AÑO 2025 -->
+  <div class="anio-bloque">
+    <button class="anio-header" onclick="toggleAnio('docs2025', this)">
+      <span>📅 Documentos 2025</span>
+      <span class="anio-arrow">▶</span>
+    </button>
+    <div id="docs2025" class="anio-content">
+      <img src="imagenes/foto2025.JPG" alt="Foto 2025" style="width:100%;max-height:200px;object-fit:cover;border-radius:10px;margin-bottom:1rem">
+      <div class="doc-list">
+        <div class="doc-item pendiente">
+          <div class="doc-info">
+            <div class="doc-icon">📄</div>
+            <div>
+              <div class="doc-title">Pendiente de carga — Agregar documentos 2025</div>
+              <div class="doc-date">Próximamente</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AÑO 2026 -->
+  <div class="anio-bloque">
+    <button class="anio-header" onclick="toggleAnio('docs2026', this)">
+      <span>📅 Documentos 2026</span>
+      <span class="anio-arrow">▶</span>
+    </button>
+    <div id="docs2026" class="anio-content">
+      <img src="imagenes/foto2026.jpg" alt="Foto 2026" style="width:100%;max-height:200px;object-fit:cover;border-radius:10px;margin-bottom:1rem">
+      <div class="doc-list">
+        <div class="doc-item pendiente">
+          <div class="doc-info">
+            <div class="doc-icon">📄</div>
+            <div>
+              <div class="doc-title">Pendiente de carga — Agregar documentos 2026</div>
+              <div class="doc-date">Próximamente</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- GALERÍA -->
@@ -245,6 +334,17 @@ function showSection(id, btn) {
   document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
+}
+function toggleAnio(id, btn) {
+  const content = document.getElementById(id);
+  const arrow = btn.querySelector('.anio-arrow');
+  const isOpen = content.classList.contains('active');
+  document.querySelectorAll('.anio-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.anio-arrow').forEach(a => a.textContent = '▶');
+  if (!isOpen) {
+    content.classList.add('active');
+    arrow.textContent = '▼';
+  }
 }
 </script>
 
